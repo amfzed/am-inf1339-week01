@@ -1,0 +1,81 @@
+<html>
+
+<head>
+<title>V5: Decimal to Binary</title>
+    
+<style>
+    .standardtable {
+        border: solid;
+        border-collapse: collapse;
+    }
+    .blackbox {
+        width: 100px;
+        height: 100px;
+        background-color:black;
+        color: yellow;
+        text-align: center;
+        border: 15px solid white;
+        padding: 15px;
+    }
+</style>
+    
+<script>
+    function display(num){
+        //display chosen number in the decimal_input span
+        document.getElementById("decimal_input").innerHTML = num;
+        
+        //convert decimal num to binary, show in binary_output
+        var bcd = dec2bin(num);
+        document.getElementById("binary_output").innerHTML = bcd;
+    }
+    
+    function dec2bin(dec){
+        //convert a decimal number into its binary representation
+        //non-algorithmic placeholder
+        // the binary for the number n is at index position n here
+        bin = ["0000",
+               "0001",
+               "0010",
+               "0011",
+               "0100",
+               "0101",
+               "0110",
+               "0111",
+               "1000",
+               "1001"
+              ];
+        return(bin[dec]);
+    }
+</script>
+</head>
+
+<body>
+<table class="standardtable">
+    <tr>
+        <td class="blackbox">
+            <h3>Keypad</h3>
+            <button type="button" onclick="display(1)">1</button>
+            <button type="button" onclick="display(2)">2</button>
+            <button type="button" onclick="display(3)">3</button>
+            <br/>
+            <button type="button" onclick="display(4)">4</button>
+            <button type="button" onclick="display(5)">5</button>
+            <button type="button" onclick="display(6)">6</button>
+            <br/>
+            <button type="button" onclick="display(7)">7</button>
+            <button type="button" onclick="display(8)">8</button>
+            <button type="button" onclick="display(9)">9</button>
+            <br/>
+            <button type="button" onclick="display(0)">0</button>
+        </td>
+        <td class="blackbox">
+            <h3>Decimal to binary</h3>
+            <p>Input: <span id="decimal_input"></span></p>
+            <p>Output: <span id="binary_output"></span></p>
+        </td>
+        <td class="blackbox">Binary to SSD signals</td>
+        <td class="blackbox">Illuminate segments</td>
+    </tr>
+</table>
+</body>
+</html>
