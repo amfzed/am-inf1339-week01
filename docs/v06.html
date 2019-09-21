@@ -1,0 +1,108 @@
+<html>
+
+<head>
+<title>V6: Stubs</title>
+    
+<style>
+    .standardtable {
+        border: solid;
+        border-collapse: collapse;
+    }
+    .blackbox {
+        width: 100px;
+        height: 100px;
+        background-color:black;
+        color: yellow;
+        text-align: center;
+        border: 15px solid white;
+        padding: 15px;
+    }
+</style>
+    
+<script>
+    function display(num){
+        //display chosen number in the decimal_input span
+        document.getElementById("decimal_input").innerHTML = num;
+        
+        //convert decimal num to binary, show in binary_output
+        var bcd = dec2bin(num);
+        document.getElementById("binary_output").innerHTML = bcd;
+        
+        //convert binary to ssd signal via bin2ssd()
+        document.getElementById("bin2ssd_input").innerHTML = bcd;
+        var ssd = bin2ssd(bcd);
+        document.getElementById("bin2ssd_output").innerHTML = ssd;
+        
+        //use ssd signal to illuminate display via illuminate_segments()
+        document.getElementById("illuminate_input").innerHTML = ssd;
+        illuminate_segments(ssd);
+        document.getElementById("illuminate_output").innerHTML = "lights!";
+    }
+    
+    function dec2bin(dec){
+        //convert a decimal number into its binary representation
+        //non-algorithmic placeholder
+        // the binary for the number n is at index position n here
+        bin = ["0000",
+               "0001",
+               "0010",
+               "0011",
+               "0100",
+               "0101",
+               "0110",
+               "0111",
+               "1000",
+               "1001"
+              ];
+        return(bin[dec]);
+    }
+    
+    function bin2ssd(bin){
+        //given a binary string, convert it to ssd signal
+        return("temp output");
+    }
+    
+    function illuminate_segments(signal){
+        return("lights!");
+    }
+</script>
+</head>
+
+<body>
+<table class="standardtable">
+    <tr>
+        <td class="blackbox">
+            <h3>Keypad</h3>
+            <button type="button" onclick="display(1)">1</button>
+            <button type="button" onclick="display(2)">2</button>
+            <button type="button" onclick="display(3)">3</button>
+            <br/>
+            <button type="button" onclick="display(4)">4</button>
+            <button type="button" onclick="display(5)">5</button>
+            <button type="button" onclick="display(6)">6</button>
+            <br/>
+            <button type="button" onclick="display(7)">7</button>
+            <button type="button" onclick="display(8)">8</button>
+            <button type="button" onclick="display(9)">9</button>
+            <br/>
+            <button type="button" onclick="display(0)">0</button>
+        </td>
+        <td class="blackbox">
+            <h3>Decimal to binary</h3>
+            <p>Input: <span id="decimal_input"></span></p>
+            <p>Output: <span id="binary_output"></span></p>
+        </td>
+        <td class="blackbox">
+            <h3>Binary to SSD signals</h3>
+            <p>Input: <span id="bin2ssd_input"></span></p>
+            <p>Output: <span id="bin2ssd_output"></span></p>
+        </td>
+        <td class="blackbox">
+            <h3>Illuminate segments</h3>
+            <p>Input: <span id="illuminate_input"></span></p>
+            <p id="illuminate_output"></p>
+        </td>
+    </tr>
+</table>
+</body>
+</html>
