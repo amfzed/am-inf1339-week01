@@ -31,20 +31,23 @@
     
     function dec2bin(dec){
         //convert a decimal number into its binary representation
-        //non-algorithmic placeholder
-        // the binary for the number n is at index position n here
-        bin = ["0000",
-               "0001",
-               "0010",
-               "0011",
-               "0100",
-               "0101",
-               "0110",
-               "0111",
-               "1000",
-               "1001"
-              ];
-        return(bin[dec]);
+        //algorithmic version
+        //assumes output is required to be 4 bits/characters long
+        
+        //initialize empty array to hold binary
+        result = [];
+        
+        //work towards building a 4-digit binary number
+        while (result.length < 4){
+            remainder = dec % 2;
+            dec = Math.floor(dec / 2);
+            
+            //put the new digit at the front of the array
+            result.unshift(remainder.toString());
+        }
+        
+        //compact the numbers in the array into a single string & return it
+        return(result.join(''));
     }
 </script>
 </head>
